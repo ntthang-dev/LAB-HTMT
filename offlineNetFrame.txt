@@ -1,0 +1,27 @@
+Dism /online /enable-feature /featurename:NetFX3 /All /Source:D:\sources\sxs /LimitAccess
+
+bat menu f8: bcdedit /set {default} bootmenupolicy legacy
+
+Lenh ve DNS
+netsh int ip set dns
+
+netsh winsock reset
+
+ipconfig /releasel
+
+ipconfig /all
+
+ipconfig /flushdns
+
+ipconfig /renew
+
+lenh sua boot:
+bootrec /fixmbr
+bootrec /fixboot
+
+bootrec /scanos
+bootrec /rebuildbcd
+
+tat autorepair  :   bcdedit /set recoveryenabled NO
+
+Get-AppXPackage | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
