@@ -39,7 +39,7 @@ bool isPerfectSquare(int n){
 		odd += 2;
 	}
 	
-	return (n == 0)?: true;
+	return (n == 0);
 }
 
 
